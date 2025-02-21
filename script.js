@@ -1,9 +1,10 @@
 function stringChop(str, size) {
-    if (!str) return [];
+     if (!str || typeof str !== "string") return []; // Handle null, undefined, and non-string inputs
+    if (size <= 0) return []; // Ensure chunk size is positive
 
     let result = [];
-    for (let i = 0; i < str.length; i += chunkLength) {
-        result.push(str.substring(i, i + chunkLength));
+    for (let i = 0; i < str.length; i += size) {
+        result.push(str.slice(i, i + size));
     }
     return result;
 }
